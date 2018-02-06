@@ -1,5 +1,17 @@
 <?php
+    session_start();
+    require_once('config.inc.php');
     
+    if(isset($_POST['submit'])){
+      $title = $_POST['title'];
+      $pages = $_POST['pages'];
+      $author = $_POST['author'];
+      $year = $_POST['year'];
+      
+      $sql="INSERT INTO library (title,pages,author,pubyear) values('$title','$pages','$author','$year')";
+      
+      mysqli_query($conn,$sql);
+    }
 ?>
 <html>
 
@@ -32,7 +44,22 @@
             </thead>
             <tbody>
                 <?php
-                
+                    $result = mysqli_query($conn,"SELECT * FROM library");
+                    while($row = mysqli_fetch_array($result)){
+                      echo "<tr>
+                              <td>".$row["title"]."</td>
+                              <td>".$row["pages"]."</td>
+                              <td>".$row["author"]."</td>
+                              <td>".$row["pubyear"]."</td>
+                              
+                              <form>
+                                <input type='hidden' name='edit' value='$row[id]' />
+                                <td><input type='submit' value='edit' /></td>
+                              </form>
+                      
+                      
+                            </tr>";
+                    }
                 ?>
             </tbody>
         </table>
@@ -43,7 +70,6 @@
 			alert("A new book has been successfully added!");
 		}
 	</script>
-<?php 
-    $dbconn->close();
+
 </body>
 </html>
