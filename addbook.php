@@ -1,6 +1,15 @@
 <?php
     session_start();
     require_once('config.inc.php');
+    
+    if(isset($_POST['submit'])){
+      $title = $_POST['title'];
+      $pages = $_POST['pages'];
+      $author = $_POST['author'];
+      $year = $_POST['year'];
+      
+      mysqli_query=($conn,"INSERT INTO library (title,pages,author,year) values('$title','$pages','$author','$year')");
+    }
 ?>
 <html>
 
