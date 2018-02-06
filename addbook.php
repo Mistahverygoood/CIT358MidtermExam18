@@ -8,7 +8,9 @@
       $author = $_POST['author'];
       $year = $_POST['year'];
       
-      mysqli_query=($conn,"INSERT INTO library (title,pages,author,year) values('$title','$pages','$author','$year')");
+      $sql="INSERT INTO library (title,pages,author,pubyear) values('$title','$pages','$author','$year')";
+      
+      mysqli_query($conn,$sql);
     }
 ?>
 <html>
