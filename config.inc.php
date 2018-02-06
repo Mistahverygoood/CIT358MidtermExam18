@@ -12,7 +12,7 @@
 		print "no database selected";
 		exit();
       }
-      mysqli_select_db($db);
+      mysqli_select_db($conn,$db);
     
     
     
