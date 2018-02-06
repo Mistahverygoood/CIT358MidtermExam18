@@ -5,7 +5,7 @@
     $pwrd = 'MVGKenny*72292';
     $db = 'cit358midtermexam';
 
-    $conn = mysqli_connect($host,$user$pwrd) or die($err);
+    $conn = mysqli_connect($host,$user,$pwrd) or die($err);
     
       if ( !$conn ){
 
