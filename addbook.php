@@ -1,5 +1,5 @@
 <?php
-    
+    session_start();
 ?>
 <html>
 
@@ -43,7 +43,6 @@
 			alert("A new book has been successfully added!");
 		}
 	</script>
-<?php 
-    $dbconn->close();
+
 </body>
 </html>
